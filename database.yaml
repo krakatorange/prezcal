@@ -1,0 +1,44 @@
+database:
+  - profiles
+  - friends
+  - events
+  - gifts
+
+authenticate:
+  - post: login
+
+api/profiles:
+  - post: create profile
+  - get: profile/profile_id
+  - put: update profile/profile_id
+  - delete: delete profile/profile_id
+
+api/friends:
+  - post: create friends/profile_id
+  - get: all friends/profile_id
+  - get: friends/profile_id/friend_id
+  - put: update friends/profile_id/friend_id
+  - delete: remove friends/profile_id/friend_id
+
+api/calendar:
+  - post: create events/profile_id
+  - get: all events/profile_id
+  - get: all events/profile_id/event_id
+  - put: update events/profile_id/event_id
+  - delete: remove events/profile_id/event_id
+
+api/orders:
+  - post: create orders/profile_id
+  - post: add to order orders/profile_id/order_id/flower_id
+  - get: all orders/profile_id
+  - get: orders/profile_id/order_id
+  - put: update orders/profile_id/order_id
+  - delete: remove orders/profile_id/order_id
+
+api/flowers:
+  - get: all flowers
+  - get: flowers/flower_id
+  - post: purchase flowers/flower_id
+
+api/stripe:
+  - post: submit order/profile_id/order_id
